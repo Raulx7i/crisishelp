@@ -34,21 +34,22 @@ export default function AdminLogin() {
       toast.error(parsed.error.issues[0].message);
       return;
     }
+    const creds = { email: parsed.data.email, password: parsed.data.password };
     setLoading(true);
     try {
       if (mode === "signin") {
-        const { error } = await supabase.auth.signInWithPassword(parsed.data);
+        const { error } = await supabase.auth.signInWithPassword(creds);
         if (error) throw error;
         toast.success("Signed in");
         nav("/admin", { replace: true });
       } else {
         const { error } = await supabase.auth.signUp({
-          ...parsed.data,
+          ...creds,
           options: { emailRedirectTo: `${window.location.origin}/admin` },
         });
         if (error) throw error;
         toast.success("Account created. Signing you in…");
-        const { error: sErr } = await supabase.auth.signInWithPassword(parsed.data);
+        const { error: sErr } = await supabase.auth.signInWithPassword(creds);
         if (sErr) throw sErr;
         nav("/admin", { replace: true });
       }

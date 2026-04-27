@@ -60,7 +60,7 @@ export const SiteHeader = () => {
             <Link to="/get-help">SOS</Link>
           </Button>
           <Button asChild size="sm" variant="outline" className="hidden md:inline-flex">
-            <Link to="/admin">Admin</Link>
+            <Link to="/admin/login">Admin</Link>
           </Button>
           <button
             className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"

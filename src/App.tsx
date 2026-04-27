@@ -16,6 +16,7 @@ import Missing from "./pages/Missing.tsx";
 import Updates from "./pages/Updates.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import { PrivateRoute } from "@/components/auth/PrivateRoute";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +38,9 @@ const App = () => (
             <Route path="/missing" element={<Missing />} />
             <Route path="/updates" element={<Updates />} />
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<Dashboard />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/admin" element={<Dashboard />} />
+            </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

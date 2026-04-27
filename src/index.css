@@ -163,5 +163,3 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   .pulse-emergency, .status-dot-live { animation: none; }
 }
-  }
-}

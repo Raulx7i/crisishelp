@@ -1,1 +1,4 @@
 project_id = "ketubibpigxwjeqsedqm"
+
+[functions.crisis-assistant]
+verify_jwt = false
